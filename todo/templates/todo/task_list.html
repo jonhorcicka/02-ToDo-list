@@ -2,6 +2,23 @@
 <h1>My to do list</h1>
 
 {% block task_list %}
+    {% if request.user.is_authenticated %}
+        <p>{{request.user}}</p>
+        <a href="{% url 'logout' %}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Logout
+        </a>
+        <form id="logout-form" method="POST" action="{% url 'logout' %}" style="display: none;">
+            {% csrf_token %}
+        </form>
+        {% comment %} <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form> {% endcomment %}
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+
+<hr>
     <h1>ToDo list</h1>
 
     <a href="{% url 'task-create' %}">Add task</a>
