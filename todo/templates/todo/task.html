@@ -1,7 +1,8 @@
 {% extends "todo/_layout.html" %}
 
-{% block task_detail %}
+{% block task_template %}
    <h1>Úkol: {{task}}</h1>
 
-    
+   <p>popis: {{task.description}}</p>
+
 {% endblock %}

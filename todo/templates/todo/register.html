@@ -1,0 +1,21 @@
+{% extends "todo/_layout.html" %}
+
+{% block task_template  %}
+<h1>Register</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label>{{ form.username.label }}</label>
+    {{form.username}}
+
+    <label>{{ form.password1.label }}</label>
+    {{form.password1}}
+
+    <label>{{ form.password2.label }}</label>
+    {{form.password2}}
+
+    <input type="submit" value="Register">
+</form>
+
+<p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+{% endblock %}
+
