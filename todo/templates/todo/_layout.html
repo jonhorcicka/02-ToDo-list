@@ -32,7 +32,16 @@
       }
       td a {
         text-decoration: none;
-        color: #fff;
+        --pico-color: var(--pico-color);
+      }
+      [data-theme=dark],
+      :root:not([data-theme=light]) {
+        --pico-color: #2d3138;
+      }
+      @media only screen and (prefers-color-scheme: dark) {
+        :root:not([data-theme]) {
+          --pico-color: #f0f1f3;
+        }
       }
       .deco-none {
         text-decoration: none;

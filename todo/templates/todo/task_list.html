@@ -57,15 +57,14 @@
             {% comment %} <td>{{task.title}}</td> {% endcomment %}
             {% if task.complete == True %}
             <td><i><s><a href="{% url 'task-update' task.id %}" name="complete">{{task}}</a></s></i></td>
-            <td>Completed &#9989;</td>
+            <td class="status">Completed &#9989;</td>
             {% else %}
             <td><a href="{% url 'task-update' task.id %}">{{task}}</a></td>
-            <td> In progress &#8987;</td>
+            <td class="status"> In progress &#8987;</td>
             {% endif %}
             {% comment %} <td><a href="{% url 'task' task.id %}">View</a></td> {% endcomment %}
             {% comment %} <td><a class="icon-edit" href="{% url 'task-update' task.id %}">&#9998;</a></td> {% endcomment %}
             <td><a href="{% url 'task-delete' task.id %}"><button>&#10005;</button></a></td> 
-
         </tr>
         {% empty %}
             <h3>No items in list</h3>
