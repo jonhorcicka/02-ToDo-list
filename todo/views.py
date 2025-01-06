@@ -37,8 +37,6 @@ class RegisterView(FormView):
             return redirect('tasks')
         return super(RegisterView, self).get(*args, **kwargs)
     
-
-
 class TaskList(LoginRequiredMixin, ListView):
     model = Task 
     context_object_name = 'tasks'
@@ -70,7 +68,6 @@ class TaskCreate(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super(TaskCreate, self).form_valid(form)
     
-
 class TaskUpdate(LoginRequiredMixin, UpdateView):
     model = Task
     fields = ['title', 'description', 'complete']
